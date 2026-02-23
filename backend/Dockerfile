@@ -14,3 +14,4 @@ COPY --from=build /app/target/*.jar app.jar
 ENV REBUILD_DATE=2026-02-23:13:20:59
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
+# Force Build ID: 1771852931
