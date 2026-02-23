@@ -2,8 +2,8 @@
 FROM maven:3.9.5-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY pom.xml .
-# Download dependencies first (cached)
-RUN mvc dependency:go-offline
+# Fixed: changed 'mvc' to 'mvn'
+RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn clean package -DskipTests
 
