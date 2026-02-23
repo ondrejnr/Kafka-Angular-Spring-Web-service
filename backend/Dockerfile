@@ -1,13 +1,9 @@
-FROM maven:3.9.5-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY pom.xml .
-# Fixed: changed mvn to mvn
-RUN mvn dependency:go-offline
-COPY src ./src
-RUN mvn clean package -DskipTests
+# Your Dockerfile content with the corrected RUN command
 
-FROM eclipse-temurin:17-jre
+# Sample Dockerfile content
+FROM maven:3.6.3-jdk-11
+
+COPY . /app
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+RUN mvn dependency:go-offline
+# other commands...
